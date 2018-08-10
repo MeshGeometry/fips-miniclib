@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,16 +22,16 @@
 
 #pragma once
 
-#ifdef URHO3D_IS_BUILDING
-#include "Urho3D.h"
+#ifdef MINICLIB_IS_BUILDING
+#include "miniclib.h"
 #else
-#include <Urho3D/Urho3D.h>
+#include <miniclib/miniclib.h>
 #endif
 
 #include "../Container/Allocator.h"
 #include "../Container/Swap.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Doubly-linked list node base class.
@@ -90,7 +90,7 @@ struct ListIteratorBase
 };
 
 /// Doubly-linked list base class.
-class URHO3D_API ListBase
+class MINICLIB_API ListBase
 {
 public:
     /// Construct.
@@ -105,10 +105,10 @@ public:
     /// Swap with another linked list.
     void Swap(ListBase& rhs)
     {
-        Urho3D::Swap(head_, rhs.head_);
-        Urho3D::Swap(tail_, rhs.tail_);
-        Urho3D::Swap(allocator_, rhs.allocator_);
-        Urho3D::Swap(size_, rhs.size_);
+        miniclib::Swap(head_, rhs.head_);
+        miniclib::Swap(tail_, rhs.tail_);
+        miniclib::Swap(allocator_, rhs.allocator_);
+        miniclib::Swap(size_, rhs.size_);
     }
 
 protected:

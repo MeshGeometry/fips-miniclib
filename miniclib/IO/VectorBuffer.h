@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,11 +25,11 @@
 #include "../IO/Deserializer.h"
 #include "../IO/Serializer.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Dynamically sized buffer that can be read and written to as a stream.
-class URHO3D_API VectorBuffer : public Deserializer, public Serializer
+class MINICLIB_API VectorBuffer : public Deserializer, public Serializer
 {
 public:
     /// Construct an empty buffer.

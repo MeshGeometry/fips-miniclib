@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -85,7 +85,7 @@ inline void SetFPUState(unsigned control)
 
 #include "../DebugNew.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 #ifdef _WIN32
@@ -316,7 +316,7 @@ const Vector<String>& GetArguments()
 String GetConsoleInput()
 {
     String ret;
-#ifdef URHO3D_TESTING
+#ifdef MINICLIB_TESTING
     // When we are running automated tests, reading the console may block. Just return empty in that case
     return ret;
 #else

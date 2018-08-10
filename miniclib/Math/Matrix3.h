@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@
 
 #include "../Math/Vector3.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// 3x3 matrix for rotation and scaling.
-class URHO3D_API Matrix3
+class MINICLIB_API Matrix3
 {
 public:
     /// Construct an identity matrix.
@@ -262,7 +262,7 @@ public:
 
         for (unsigned i = 0; i < 9; ++i)
         {
-            if (!Urho3D::Equals(leftData[i], rightData[i]))
+            if (!miniclib::Equals(leftData[i], rightData[i]))
                 return false;
         }
 

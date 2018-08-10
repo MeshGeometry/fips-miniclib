@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,8 +22,8 @@
 
 #ifdef __cplusplus
 
-#ifndef URHO3D_PCH_INCLUDED
-#define URHO3D_PCH_INCLUDED
+#ifndef MINICLIB_PCH_INCLUDED
+#define MINICLIB_PCH_INCLUDED
 
 #include "Container/HashMap.h"
 #include "Container/HashSet.h"

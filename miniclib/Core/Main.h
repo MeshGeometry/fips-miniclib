@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@
 
 #include "../Core/ProcessUtils.h"
 
-#if defined(_WIN32) && !defined(URHO3D_WIN32_CONSOLE)
+#if defined(_WIN32) && !defined(MINICLIB_WIN32_CONSOLE)
 #include "../Core/MiniDump.h"
 #include <windows.h>
 #ifdef _MSC_VER
@@ -35,53 +35,53 @@
 // Define a platform-specific main function, which in turn executes the user-defined function
 
 // MSVC debug mode: use memory leak reporting
-#if defined(_MSC_VER) && defined(_DEBUG) && !defined(URHO3D_WIN32_CONSOLE)
-#define URHO3D_DEFINE_MAIN(function) \
+#if defined(_MSC_VER) && defined(_DEBUG) && !defined(MINICLIB_WIN32_CONSOLE)
+#define MINICLIB_DEFINE_MAIN(function) \
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, PSTR cmdLine, int showCmd) \
 { \
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); \
-    Urho3D::ParseArguments(GetCommandLineW()); \
+    miniclib::ParseArguments(GetCommandLineW()); \
     return function; \
 }
 // MSVC release mode: write minidump on crash
-#elif defined(_MSC_VER) && defined(URHO3D_MINIDUMPS) && !defined(URHO3D_WIN32_CONSOLE)
-#define URHO3D_DEFINE_MAIN(function) \
+#elif defined(_MSC_VER) && defined(MINICLIB_MINIDUMPS) && !defined(MINICLIB_WIN32_CONSOLE)
+#define MINICLIB_DEFINE_MAIN(function) \
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, PSTR cmdLine, int showCmd) \
 { \
-    Urho3D::ParseArguments(GetCommandLineW()); \
+    miniclib::ParseArguments(GetCommandLineW()); \
     int exitCode; \
     __try \
     { \
         exitCode = function; \
     } \
-    __except(Urho3D::WriteMiniDump("Urho3D", GetExceptionInformation())) \
+    __except(miniclib::WriteMiniDump("miniclib", GetExceptionInformation())) \
     { \
     } \
     return exitCode; \
 }
 // Other Win32 or minidumps disabled: just execute the function
-#elif defined(_WIN32) && !defined(URHO3D_WIN32_CONSOLE)
-#define URHO3D_DEFINE_MAIN(function) \
+#elif defined(_WIN32) && !defined(MINICLIB_WIN32_CONSOLE)
+#define MINICLIB_DEFINE_MAIN(function) \
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, PSTR cmdLine, int showCmd) \
 { \
-    Urho3D::ParseArguments(GetCommandLineW()); \
+    miniclib::ParseArguments(GetCommandLineW()); \
     return function; \
 }
 // Android or iOS: use SDL_main
 #elif defined(__ANDROID__) || defined(IOS)
-#define URHO3D_DEFINE_MAIN(function) \
+#define MINICLIB_DEFINE_MAIN(function) \
 extern "C" int SDL_main(int argc, char** argv); \
 int SDL_main(int argc, char** argv) \
 { \
-    Urho3D::ParseArguments(argc, argv); \
+    miniclib::ParseArguments(argc, argv); \
     return function; \
 }
 // Linux or OS X: use main
 #else
-#define URHO3D_DEFINE_MAIN(function) \
+#define MINICLIB_DEFINE_MAIN(function) \
 int main(int argc, char** argv) \
 { \
-    Urho3D::ParseArguments(argc, argv); \
+    miniclib::ParseArguments(argc, argv); \
     return function; \
 }
 #endif

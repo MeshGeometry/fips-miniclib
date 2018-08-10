@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,22 +22,22 @@
 
 #pragma once
 
-#ifdef URHO3D_IS_BUILDING
-#include "Urho3D.h"
+#ifdef MINICLIB_IS_BUILDING
+#include "miniclib.h"
 #else
-#include <Urho3D/Urho3D.h>
+#include <miniclib/miniclib.h>
 #endif
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Set the random seed. The default seed is 1.
-URHO3D_API void SetRandomSeed(unsigned seed);
+MINICLIB_API void SetRandomSeed(unsigned seed);
 /// Return the current random seed.
-URHO3D_API unsigned GetRandomSeed();
+MINICLIB_API unsigned GetRandomSeed();
 /// Return a random number between 0-32767. Should operate similarly to MSVC rand().
-URHO3D_API int Rand();
+MINICLIB_API int Rand();
 /// Return a standard normal distributed number.
-URHO3D_API float RandStandardNormal();
+MINICLIB_API float RandStandardNormal();
 
 }

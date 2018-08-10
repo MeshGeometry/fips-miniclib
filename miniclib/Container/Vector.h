@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@
 #include <cassert>
 #include <cstring>
 #include <new>
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
 #include <initializer_list>
 #endif
 
@@ -36,7 +36,7 @@
 #pragma warning(disable:6293)
 #endif
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// %Vector template class.
@@ -77,7 +77,7 @@ public:
     {
         *this = vector;
     }
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
     /// Aggregate initialization constructor.
     Vector(const std::initializer_list<T>& list) : Vector()
     {
@@ -610,7 +610,7 @@ public:
     {
         *this = vector;
     }
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
     /// Aggregate initialization constructor.
     PODVector(const std::initializer_list<T>& list) : PODVector()
     {
@@ -1052,21 +1052,21 @@ private:
     }
 };
 
-template <class T> typename Urho3D::Vector<T>::ConstIterator begin(const Urho3D::Vector<T>& v) { return v.Begin(); }
+template <class T> typename miniclib::Vector<T>::ConstIterator begin(const miniclib::Vector<T>& v) { return v.Begin(); }
 
-template <class T> typename Urho3D::Vector<T>::ConstIterator end(const Urho3D::Vector<T>& v) { return v.End(); }
+template <class T> typename miniclib::Vector<T>::ConstIterator end(const miniclib::Vector<T>& v) { return v.End(); }
 
-template <class T> typename Urho3D::Vector<T>::Iterator begin(Urho3D::Vector<T>& v) { return v.Begin(); }
+template <class T> typename miniclib::Vector<T>::Iterator begin(miniclib::Vector<T>& v) { return v.Begin(); }
 
-template <class T> typename Urho3D::Vector<T>::Iterator end(Urho3D::Vector<T>& v) { return v.End(); }
+template <class T> typename miniclib::Vector<T>::Iterator end(miniclib::Vector<T>& v) { return v.End(); }
 
-template <class T> typename Urho3D::PODVector<T>::ConstIterator begin(const Urho3D::PODVector<T>& v) { return v.Begin(); }
+template <class T> typename miniclib::PODVector<T>::ConstIterator begin(const miniclib::PODVector<T>& v) { return v.Begin(); }
 
-template <class T> typename Urho3D::PODVector<T>::ConstIterator end(const Urho3D::PODVector<T>& v) { return v.End(); }
+template <class T> typename miniclib::PODVector<T>::ConstIterator end(const miniclib::PODVector<T>& v) { return v.End(); }
 
-template <class T> typename Urho3D::PODVector<T>::Iterator begin(Urho3D::PODVector<T>& v) { return v.Begin(); }
+template <class T> typename miniclib::PODVector<T>::Iterator begin(miniclib::PODVector<T>& v) { return v.Begin(); }
 
-template <class T> typename Urho3D::PODVector<T>::Iterator end(Urho3D::PODVector<T>& v) { return v.End(); }
+template <class T> typename miniclib::PODVector<T>::Iterator end(miniclib::PODVector<T>& v) { return v.End(); }
 
 }
 

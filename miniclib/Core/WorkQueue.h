@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,13 +26,13 @@
 #include "../Core/Mutex.h"
 #include "../Core/Object.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Work item completed event.
-URHO3D_EVENT(E_WORKITEMCOMPLETED, WorkItemCompleted)
+MINICLIB_EVENT(E_WORKITEMCOMPLETED, WorkItemCompleted)
 {
-    URHO3D_PARAM(P_ITEM, Item);                        // WorkItem ptr
+    MINICLIB_PARAM(P_ITEM, Item);                        // WorkItem ptr
 }
 
 class WorkerThread;
@@ -72,9 +72,9 @@ private:
 };
 
 /// Work queue subsystem for multithreading.
-class URHO3D_API WorkQueue : public Object
+class MINICLIB_API WorkQueue : public Object
 {
-    URHO3D_OBJECT(WorkQueue, Object);
+    MINICLIB_OBJECT(WorkQueue, Object);
 
     friend class WorkerThread;
 

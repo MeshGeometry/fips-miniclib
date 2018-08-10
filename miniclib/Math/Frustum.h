@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@
 #include "../Math/Rect.h"
 #include "../Math/Sphere.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Frustum planes.
@@ -46,7 +46,7 @@ static const unsigned NUM_FRUSTUM_PLANES = 6;
 static const unsigned NUM_FRUSTUM_VERTICES = 8;
 
 /// Convex constructed of 6 planes.
-class URHO3D_API Frustum
+class MINICLIB_API Frustum
 {
 public:
     /// Construct a degenerate frustum with all points at origin.

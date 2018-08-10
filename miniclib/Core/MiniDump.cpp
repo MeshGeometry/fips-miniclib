@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +20,7 @@
 // THE SOFTWARE.
 //
 
-#if defined(_MSC_VER) && defined(URHO3D_MINIDUMPS)
+#if defined(_MSC_VER) && defined(MINICLIB_MINIDUMPS)
 
 #include "../Precompiled.h"
 
@@ -33,12 +33,12 @@
 #include <windows.h>
 #include <dbghelp.h>
 
-namespace Urho3D
+namespace miniclib
 {
 
 static bool miniDumpWritten = false;
 
-URHO3D_API int WriteMiniDump(const char* applicationName, void* exceptionPointers)
+MINICLIB_API int WriteMiniDump(const char* applicationName, void* exceptionPointers)
 {
     // In case of recursive or repeating exceptions, only write the dump once
     /// \todo This function should not allocate any dynamic memory

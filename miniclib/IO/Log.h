@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@
 #include "../Core/Object.h"
 #include "../Core/StringUtils.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Fictional message level to indicate a stored raw message.
@@ -70,9 +70,9 @@ struct StoredLogMessage
 };
 
 /// Logging subsystem.
-class URHO3D_API Log : public Object
+class MINICLIB_API Log : public Object
 {
-    URHO3D_OBJECT(Log, Object);
+    MINICLIB_OBJECT(Log, Object);
 
 public:
     /// Construct.
@@ -130,28 +130,28 @@ private:
     bool quiet_;
 };
 
-#ifdef URHO3D_LOGGING
-#define URHO3D_LOGDEBUG(message) Urho3D::Log::Write(Urho3D::LOG_DEBUG, message)
-#define URHO3D_LOGINFO(message) Urho3D::Log::Write(Urho3D::LOG_INFO, message)
-#define URHO3D_LOGWARNING(message) Urho3D::Log::Write(Urho3D::LOG_WARNING, message)
-#define URHO3D_LOGERROR(message) Urho3D::Log::Write(Urho3D::LOG_ERROR, message)
-#define URHO3D_LOGRAW(message) Urho3D::Log::WriteRaw(message)
-#define URHO3D_LOGDEBUGF(format, ...) Urho3D::Log::Write(Urho3D::LOG_DEBUG, Urho3D::ToString(format, ##__VA_ARGS__))
-#define URHO3D_LOGINFOF(format, ...) Urho3D::Log::Write(Urho3D::LOG_INFO, Urho3D::ToString(format, ##__VA_ARGS__))
-#define URHO3D_LOGWARNINGF(format, ...) Urho3D::Log::Write(Urho3D::LOG_WARNING, Urho3D::ToString(format, ##__VA_ARGS__))
-#define URHO3D_LOGERRORF(format, ...) Urho3D::Log::Write(Urho3D::LOG_ERROR, Urho3D::ToString(format, ##__VA_ARGS__))
-#define URHO3D_LOGRAWF(format, ...) Urho3D::Log::WriteRaw(Urho3D::ToString(format, ##__VA_ARGS__))
+#ifdef MINICLIB_LOGGING
+#define MINICLIB_LOGDEBUG(message) miniclib::Log::Write(miniclib::LOG_DEBUG, message)
+#define MINICLIB_LOGINFO(message) miniclib::Log::Write(miniclib::LOG_INFO, message)
+#define MINICLIB_LOGWARNING(message) miniclib::Log::Write(miniclib::LOG_WARNING, message)
+#define MINICLIB_LOGERROR(message) miniclib::Log::Write(miniclib::LOG_ERROR, message)
+#define MINICLIB_LOGRAW(message) miniclib::Log::WriteRaw(message)
+#define MINICLIB_LOGDEBUGF(format, ...) miniclib::Log::Write(miniclib::LOG_DEBUG, miniclib::ToString(format, ##__VA_ARGS__))
+#define MINICLIB_LOGINFOF(format, ...) miniclib::Log::Write(miniclib::LOG_INFO, miniclib::ToString(format, ##__VA_ARGS__))
+#define MINICLIB_LOGWARNINGF(format, ...) miniclib::Log::Write(miniclib::LOG_WARNING, miniclib::ToString(format, ##__VA_ARGS__))
+#define MINICLIB_LOGERRORF(format, ...) miniclib::Log::Write(miniclib::LOG_ERROR, miniclib::ToString(format, ##__VA_ARGS__))
+#define MINICLIB_LOGRAWF(format, ...) miniclib::Log::WriteRaw(miniclib::ToString(format, ##__VA_ARGS__))
 #else
-#define URHO3D_LOGDEBUG(message) ((void)0)
-#define URHO3D_LOGINFO(message) ((void)0)
-#define URHO3D_LOGWARNING(message) ((void)0)
-#define URHO3D_LOGERROR(message) ((void)0)
-#define URHO3D_LOGRAW(message) ((void)0)
-#define URHO3D_LOGDEBUGF(...) ((void)0)
-#define URHO3D_LOGINFOF(...) ((void)0)
-#define URHO3D_LOGWARNINGF(...) ((void)0)
-#define URHO3D_LOGERRORF(...) ((void)0)
-#define URHO3D_LOGRAWF(...) ((void)0)
+#define MINICLIB_LOGDEBUG(message) ((void)0)
+#define MINICLIB_LOGINFO(message) ((void)0)
+#define MINICLIB_LOGWARNING(message) ((void)0)
+#define MINICLIB_LOGERROR(message) ((void)0)
+#define MINICLIB_LOGRAW(message) ((void)0)
+#define MINICLIB_LOGDEBUGF(...) ((void)0)
+#define MINICLIB_LOGINFOF(...) ((void)0)
+#define MINICLIB_LOGWARNINGF(...) ((void)0)
+#define MINICLIB_LOGERRORF(...) ((void)0)
+#define MINICLIB_LOGRAWF(...) ((void)0)
 #endif
 
 }

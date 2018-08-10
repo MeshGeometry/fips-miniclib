@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@
 #pragma warning(disable:6293)
 #endif
 
-namespace Urho3D
+namespace miniclib
 {
 
 char String::endZero = 0;
@@ -482,9 +482,9 @@ void String::Clear()
 
 void String::Swap(String& str)
 {
-    Urho3D::Swap(length_, str.length_);
-    Urho3D::Swap(capacity_, str.capacity_);
-    Urho3D::Swap(buffer_, str.buffer_);
+    miniclib::Swap(length_, str.length_);
+    miniclib::Swap(capacity_, str.capacity_);
+    miniclib::Swap(buffer_, str.buffer_);
 }
 
 String String::Substring(unsigned pos) const
@@ -1179,7 +1179,7 @@ String& String::AppendWithFormatArgs(const char* formatString, va_list args)
             }
 
         default:
-            URHO3D_LOGWARNINGF("Unsupported format specifier: '%c'", format);
+            MINICLIB_LOGWARNINGF("Unsupported format specifier: '%c'", format);
             break;
         }
     }

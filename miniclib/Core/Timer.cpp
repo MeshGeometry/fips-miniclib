@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -39,7 +39,7 @@
 
 #include "../DebugNew.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 bool HiresTimer::supported(false);
@@ -115,7 +115,7 @@ void Time::BeginFrame(float timeStep)
         profiler->BeginFrame();
 
     {
-        URHO3D_PROFILE(BeginFrame);
+        MINICLIB_PROFILE(BeginFrame);
 
         // Frame begin event
         using namespace BeginFrame;
@@ -130,7 +130,7 @@ void Time::BeginFrame(float timeStep)
 void Time::EndFrame()
 {
     {
-        URHO3D_PROFILE(EndFrame);
+        MINICLIB_PROFILE(EndFrame);
 
         // Frame end event
         SendEvent(E_ENDFRAME);

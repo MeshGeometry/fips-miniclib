@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,13 +27,13 @@
 // Defined by Windows headers
 #undef TRANSPARENT
 
-namespace Urho3D
+namespace miniclib
 {
 
 class String;
 
 /// RGBA color.
-class URHO3D_API Color
+class MINICLIB_API Color
 {
 public:
     /// Construct with default values (opaque white.)
@@ -189,12 +189,12 @@ public:
     Color Lerp(const Color& rhs, float t) const;
 
     /// Return color with absolute components.
-    Color Abs() const { return Color(Urho3D::Abs(r_), Urho3D::Abs(g_), Urho3D::Abs(b_), Urho3D::Abs(a_)); }
+    Color Abs() const { return Color(miniclib::Abs(r_), miniclib::Abs(g_), miniclib::Abs(b_), miniclib::Abs(a_)); }
 
     /// Test for equality with another color with epsilon.
     bool Equals(const Color& rhs) const
     {
-        return Urho3D::Equals(r_, rhs.r_) && Urho3D::Equals(g_, rhs.g_) && Urho3D::Equals(b_, rhs.b_) && Urho3D::Equals(a_, rhs.a_);
+        return miniclib::Equals(r_, rhs.r_) && miniclib::Equals(g_, rhs.g_) && miniclib::Equals(b_, rhs.b_) && miniclib::Equals(a_, rhs.a_);
     }
 
     /// Return as string.

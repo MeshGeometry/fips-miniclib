@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
 #include "../DebugNew.h"
 
 
-namespace Urho3D
+namespace miniclib
 {
 
 TypeInfo::TypeInfo(const char* typeName, const TypeInfo* baseTypeInfo) :
@@ -179,7 +179,7 @@ void Object::SubscribeToEvent(Object* sender, StringHash eventType, EventHandler
     }
 }
 
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
 void Object::SubscribeToEvent(StringHash eventType, const std::function<void(StringHash, VariantMap&)>& function, void* userData/*=0*/)
 {
     SubscribeToEvent(eventType, new EventHandler11Impl(function, userData));
@@ -297,7 +297,7 @@ void Object::SendEvent(StringHash eventType, VariantMap& eventData)
 {
     if (!Thread::IsMainThread())
     {
-        URHO3D_LOGERROR("Sending events is only supported from the main thread");
+        MINICLIB_LOGERROR("Sending events is only supported from the main thread");
         return;
     }
 
@@ -524,7 +524,7 @@ void Object::RemoveEventSender(Object* sender)
 }
 
 
-Urho3D::StringHash EventNameRegistrar::RegisterEventName(const char* eventName)
+miniclib::StringHash EventNameRegistrar::RegisterEventName(const char* eventName)
 {
     StringHash id(eventName);
     GetEventNameMap()[id] = eventName;

@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,42 +24,42 @@
 
 #include "../Core/Object.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Frame begin event.
-URHO3D_EVENT(E_BEGINFRAME, BeginFrame)
+MINICLIB_EVENT(E_BEGINFRAME, BeginFrame)
 {
-    URHO3D_PARAM(P_FRAMENUMBER, FrameNumber);      // unsigned
-    URHO3D_PARAM(P_TIMESTEP, TimeStep);            // float
+    MINICLIB_PARAM(P_FRAMENUMBER, FrameNumber);      // unsigned
+    MINICLIB_PARAM(P_TIMESTEP, TimeStep);            // float
 }
 
 /// Application-wide logic update event.
-URHO3D_EVENT(E_UPDATE, Update)
+MINICLIB_EVENT(E_UPDATE, Update)
 {
-    URHO3D_PARAM(P_TIMESTEP, TimeStep);            // float
+    MINICLIB_PARAM(P_TIMESTEP, TimeStep);            // float
 }
 
 /// Application-wide logic post-update event.
-URHO3D_EVENT(E_POSTUPDATE, PostUpdate)
+MINICLIB_EVENT(E_POSTUPDATE, PostUpdate)
 {
-    URHO3D_PARAM(P_TIMESTEP, TimeStep);            // float
+    MINICLIB_PARAM(P_TIMESTEP, TimeStep);            // float
 }
 
 /// Render update event.
-URHO3D_EVENT(E_RENDERUPDATE, RenderUpdate)
+MINICLIB_EVENT(E_RENDERUPDATE, RenderUpdate)
 {
-    URHO3D_PARAM(P_TIMESTEP, TimeStep);            // float
+    MINICLIB_PARAM(P_TIMESTEP, TimeStep);            // float
 }
 
 /// Post-render update event.
-URHO3D_EVENT(E_POSTRENDERUPDATE, PostRenderUpdate)
+MINICLIB_EVENT(E_POSTRENDERUPDATE, PostRenderUpdate)
 {
-    URHO3D_PARAM(P_TIMESTEP, TimeStep);            // float
+    MINICLIB_PARAM(P_TIMESTEP, TimeStep);            // float
 }
 
 /// Frame end event.
-URHO3D_EVENT(E_ENDFRAME, EndFrame)
+MINICLIB_EVENT(E_ENDFRAME, EndFrame)
 {
 }
 

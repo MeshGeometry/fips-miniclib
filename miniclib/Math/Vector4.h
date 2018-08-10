@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@
 
 #include "../Math/Vector3.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Four-dimensional vector.
-class URHO3D_API Vector4
+class MINICLIB_API Vector4
 {
 public:
     /// Construct a zero vector.
@@ -180,14 +180,14 @@ public:
     /// Calculate absolute dot product.
     float AbsDotProduct(const Vector4& rhs) const
     {
-        return Urho3D::Abs(x_ * rhs.x_) + Urho3D::Abs(y_ * rhs.y_) + Urho3D::Abs(z_ * rhs.z_) + Urho3D::Abs(w_ * rhs.w_);
+        return miniclib::Abs(x_ * rhs.x_) + miniclib::Abs(y_ * rhs.y_) + miniclib::Abs(z_ * rhs.z_) + miniclib::Abs(w_ * rhs.w_);
     }
 
     /// Project vector onto axis.
     float ProjectOntoAxis(const Vector3& axis) const { return DotProduct(Vector4(axis.Normalized(), 0.0f)); }
 
     /// Return absolute vector.
-    Vector4 Abs() const { return Vector4(Urho3D::Abs(x_), Urho3D::Abs(y_), Urho3D::Abs(z_), Urho3D::Abs(w_)); }
+    Vector4 Abs() const { return Vector4(miniclib::Abs(x_), miniclib::Abs(y_), miniclib::Abs(z_), miniclib::Abs(w_)); }
 
     /// Linear interpolation with another vector.
     Vector4 Lerp(const Vector4& rhs, float t) const { return *this * (1.0f - t) + rhs * t; }
@@ -195,11 +195,11 @@ public:
     /// Test for equality with another vector with epsilon.
     bool Equals(const Vector4& rhs) const
     {
-        return Urho3D::Equals(x_, rhs.x_) && Urho3D::Equals(y_, rhs.y_) && Urho3D::Equals(z_, rhs.z_) && Urho3D::Equals(w_, rhs.w_);
+        return miniclib::Equals(x_, rhs.x_) && miniclib::Equals(y_, rhs.y_) && miniclib::Equals(z_, rhs.z_) && miniclib::Equals(w_, rhs.w_);
     }
 
     /// Return whether is NaN.
-    bool IsNaN() const { return Urho3D::IsNaN(x_) || Urho3D::IsNaN(y_) || Urho3D::IsNaN(z_) || Urho3D::IsNaN(w_); }
+    bool IsNaN() const { return miniclib::IsNaN(x_) || miniclib::IsNaN(y_) || miniclib::IsNaN(z_) || miniclib::IsNaN(w_); }
 
     /// Return float data.
     const float* Data() const { return &x_; }

@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@
 #include "../Container/Ptr.h"
 #include "../Core/Variant.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Attribute shown only in the editor, but not serialized.
@@ -52,7 +52,7 @@ static const unsigned AM_FILEREADONLY = 0x81;
 class Serializable;
 
 /// Abstract base class for invoking attribute accessors.
-class URHO3D_API AttributeAccessor : public RefCounted
+class MINICLIB_API AttributeAccessor : public RefCounted
 {
 public:
     /// Get the attribute.

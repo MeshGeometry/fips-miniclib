@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,10 +22,10 @@
 
 #pragma once
 
-#ifdef URHO3D_IS_BUILDING
-#include "Urho3D.h"
+#ifdef MINICLIB_IS_BUILDING
+#include "miniclib.h"
 #else
-#include <Urho3D/Urho3D.h>
+#include <miniclib/miniclib.h>
 #endif
 
 #ifndef _WIN32
@@ -35,11 +35,11 @@ typedef pthread_t ThreadID;
 typedef unsigned ThreadID;
 #endif
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Operating system thread.
-class URHO3D_API Thread
+class MINICLIB_API Thread
 {
 public:
     /// Construct. Does not start the thread yet.

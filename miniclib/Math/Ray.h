@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@
 #include "../Math/Vector3.h"
 #include "../Math/Matrix3x4.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 class BoundingBox;
@@ -34,7 +34,7 @@ class Plane;
 class Sphere;
 
 /// Infinite straight line in three-dimensional space.
-class URHO3D_API Ray
+class MINICLIB_API Ray
 {
 public:
     /// Construct a degenerate ray with zero origin and direction.

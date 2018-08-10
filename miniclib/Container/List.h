@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +23,11 @@
 #pragma once
 
 #include "../Container/ListBase.h"
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
 #include <initializer_list>
 #endif
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Doubly-linked list template class.
@@ -188,7 +188,7 @@ public:
         head_ = tail_ = ReserveNode();
         *this = list;
     }
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
     /// Aggregate initialization constructor.
     List(const std::initializer_list<T>& list) : List()
     {
@@ -489,12 +489,12 @@ private:
     }
 };
 
-template <class T> typename Urho3D::List<T>::ConstIterator begin(const Urho3D::List<T>& v) { return v.Begin(); }
+template <class T> typename miniclib::List<T>::ConstIterator begin(const miniclib::List<T>& v) { return v.Begin(); }
 
-template <class T> typename Urho3D::List<T>::ConstIterator end(const Urho3D::List<T>& v) { return v.End(); }
+template <class T> typename miniclib::List<T>::ConstIterator end(const miniclib::List<T>& v) { return v.End(); }
 
-template <class T> typename Urho3D::List<T>::Iterator begin(Urho3D::List<T>& v) { return v.Begin(); }
+template <class T> typename miniclib::List<T>::Iterator begin(miniclib::List<T>& v) { return v.Begin(); }
 
-template <class T> typename Urho3D::List<T>::Iterator end(Urho3D::List<T>& v) { return v.End(); }
+template <class T> typename miniclib::List<T>::Iterator end(miniclib::List<T>& v) { return v.End(); }
 
 }

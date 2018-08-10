@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,11 +27,11 @@
 #include <cassert>
 #include <cstddef>
 
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
 #include <utility>
 #endif
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Shared pointer template class with intrusive reference counting.
@@ -44,7 +44,7 @@ public:
     {
     }
 
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
     /// Construct a null shared pointer.
     SharedPtr(std::nullptr_t) :
         ptr_(0)
@@ -256,7 +256,7 @@ public:
     {
     }
 
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
     /// Construct a null weak pointer.
     WeakPtr(std::nullptr_t) :
         ptr_(0),
@@ -550,7 +550,7 @@ public:
         return *this;
     }
 
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
     /// Construct empty.
     UniquePtr(std::nullptr_t) { }
 
@@ -641,7 +641,7 @@ template <class T> void Swap(UniquePtr<T>& first, UniquePtr<T>& second)
     first.Swap(second);
 }
 
-#if URHO3D_CXX11
+#if MINICLIB_CXX11
 
 /// Construct UniquePtr.
 template <class T, class ... Args> UniquePtr<T> MakeUnique(Args && ... args)

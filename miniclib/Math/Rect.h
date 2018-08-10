@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@
 
 #include "../Math/Vector4.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Two-dimensional bounding rectangle.
-class URHO3D_API Rect
+class MINICLIB_API Rect
 {
 public:
     /// Construct an undefined rect.
@@ -204,7 +204,7 @@ public:
 };
 
 /// Two-dimensional bounding rectangle with integer values.
-class URHO3D_API IntRect
+class MINICLIB_API IntRect
 {
 public:
     /// Construct a zero rect.

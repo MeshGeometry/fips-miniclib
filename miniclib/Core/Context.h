@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,11 +26,11 @@
 #include "../Core/Attribute.h"
 #include "../Core/Object.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Tracking structure for event receivers.
-class URHO3D_API EventReceiverGroup : public RefCounted
+class MINICLIB_API EventReceiverGroup : public RefCounted
 {
 public:
     /// Construct.
@@ -62,8 +62,8 @@ private:
     bool dirty_;
 };
 
-/// Urho3D execution context. Provides access to subsystems, object factories and attributes, and event receivers.
-class URHO3D_API Context : public RefCounted
+/// miniclib execution context. Provides access to subsystems, object factories and attributes, and event receivers.
+class MINICLIB_API Context : public RefCounted
 {
     friend class Object;
 

@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,17 +22,17 @@
 
 #pragma once
 
-#ifdef URHO3D_IS_BUILDING
-#include "Urho3D.h"
+#ifdef MINICLIB_IS_BUILDING
+#include "miniclib.h"
 #else
-#include <Urho3D/Urho3D.h>
+#include <miniclib/miniclib.h>
 #endif
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Operating system mutual exclusion primitive.
-class URHO3D_API Mutex
+class MINICLIB_API Mutex
 {
 public:
     /// Construct.
@@ -53,7 +53,7 @@ private:
 };
 
 /// Lock that automatically acquires and releases a mutex.
-class URHO3D_API MutexLock
+class MINICLIB_API MutexLock
 {
 public:
     /// Construct and acquire the mutex.

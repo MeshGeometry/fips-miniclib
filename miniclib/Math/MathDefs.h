@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -34,7 +34,7 @@
 #include <cmath>
 #include <limits>
 
-namespace Urho3D
+namespace miniclib
 {
 
 #undef M_PI
@@ -92,7 +92,7 @@ template <class T>
 inline T Sign(T value) { return value > 0.0 ? 1.0 : (value < 0.0 ? -1.0 : 0.0); }
 
 /// Check whether a floating point value is NaN.
-/// Use a workaround for GCC, see https://github.com/urho3d/Urho3D/issues/655
+/// Use a workaround for GCC, see https://github.com/urho3d/miniclib/issues/655
 #ifndef __GNUC__
 inline bool IsNaN(float value) { return value != value; }
 #else
@@ -273,7 +273,7 @@ inline float HalfToFloat(unsigned short value)
 }
 
 /// Calculate both sine and cosine, with angle in degrees.
-URHO3D_API void SinCos(float angle, float& sin, float& cos);
+MINICLIB_API void SinCos(float angle, float& sin, float& cos);
 
 }
 

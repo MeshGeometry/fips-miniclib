@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,13 +22,13 @@
 
 #pragma once
 
-#ifdef URHO3D_IS_BUILDING
-#include "Urho3D.h"
+#ifdef MINICLIB_IS_BUILDING
+#include "miniclib.h"
 #else
-#include <Urho3D/Urho3D.h>
+#include <miniclib/miniclib.h>
 #endif
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Reference count structure.
@@ -56,7 +56,7 @@ struct RefCount
 };
 
 /// Base class for intrusively reference-counted objects. These are noncopyable and non-assignable.
-class URHO3D_API RefCounted
+class MINICLIB_API RefCounted
 {
 public:
     /// Construct. Allocate the reference count structure and set an initial self weak reference.

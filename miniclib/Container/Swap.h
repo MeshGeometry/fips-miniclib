@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
 
 #pragma once
 
-namespace Urho3D
+namespace miniclib
 {
 
 class HashBase;
@@ -38,9 +38,9 @@ template <class T> inline void Swap(T& first, T& second)
     second = temp;
 }
 
-template <> URHO3D_API void Swap<String>(String& first, String& second);
-template <> URHO3D_API void Swap<VectorBase>(VectorBase& first, VectorBase& second);
-template <> URHO3D_API void Swap<ListBase>(ListBase& first, ListBase& second);
-template <> URHO3D_API void Swap<HashBase>(HashBase& first, HashBase& second);
+template <> MINICLIB_API void Swap<String>(String& first, String& second);
+template <> MINICLIB_API void Swap<VectorBase>(VectorBase& first, VectorBase& second);
+template <> MINICLIB_API void Swap<ListBase>(ListBase& first, ListBase& second);
+template <> MINICLIB_API void Swap<HashBase>(HashBase& first, HashBase& second);
 
 }

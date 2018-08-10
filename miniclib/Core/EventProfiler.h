@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@
 
 #include "../Core/Profiler.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Event profiling data for one block in the event profiling tree.
-class URHO3D_API EventProfilerBlock : public ProfilerBlock
+class MINICLIB_API EventProfilerBlock : public ProfilerBlock
 {
 public:
     /// Construct with the specified parent block and event ID.
@@ -59,9 +59,9 @@ public:
 };
 
 /// Hierarchical performance event profiler subsystem.
-class URHO3D_API EventProfiler : public Profiler
+class MINICLIB_API EventProfiler : public Profiler
 {
-    URHO3D_OBJECT(EventProfiler, Profiler);
+    MINICLIB_OBJECT(EventProfiler, Profiler);
 
 public:
     /// Construct.

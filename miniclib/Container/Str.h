@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@
 #include <cstring>
 #include <cctype>
 
-namespace Urho3D
+namespace miniclib
 {
 
 static const int CONVERSION_BUFFER_LENGTH = 128;
@@ -37,7 +37,7 @@ static const int MATRIX_CONVERSION_BUFFER_LENGTH = 256;
 class WString;
 
 /// %String class.
-class URHO3D_API String
+class MINICLIB_API String
 {
 public:
     typedef RandomAccessIterator<char> Iterator;
@@ -542,7 +542,7 @@ inline String operator +(const wchar_t* lhs, const String& rhs)
 }
 
 /// Wide character string. Only meant for converting from String and passing to the operating system where necessary.
-class URHO3D_API WString
+class MINICLIB_API WString
 {
 public:
     /// Construct empty.

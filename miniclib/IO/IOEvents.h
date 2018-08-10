@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,21 +24,21 @@
 
 #include "../Core/Object.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Log message event.
-URHO3D_EVENT(E_LOGMESSAGE, LogMessage)
+MINICLIB_EVENT(E_LOGMESSAGE, LogMessage)
 {
-    URHO3D_PARAM(P_MESSAGE, Message);              // String
-    URHO3D_PARAM(P_LEVEL, Level);                  // int
+    MINICLIB_PARAM(P_MESSAGE, Message);              // String
+    MINICLIB_PARAM(P_LEVEL, Level);                  // int
 }
 
 /// Async system command execution finished.
-URHO3D_EVENT(E_ASYNCEXECFINISHED, AsyncExecFinished)
+MINICLIB_EVENT(E_ASYNCEXECFINISHED, AsyncExecFinished)
 {
-    URHO3D_PARAM(P_REQUESTID, RequestID);          // unsigned
-    URHO3D_PARAM(P_EXITCODE, ExitCode);            // int
+    MINICLIB_PARAM(P_REQUESTID, RequestID);          // unsigned
+    MINICLIB_PARAM(P_EXITCODE, ExitCode);            // int
 }
 
 }

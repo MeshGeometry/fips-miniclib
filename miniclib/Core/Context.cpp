@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@
 #include <SDL/SDL.h>
 #endif
 
-namespace Urho3D
+namespace miniclib
 {
 
 // Keeps track of how many times SDL was initialised so we know when to call SDL_Quit().
@@ -108,7 +108,7 @@ Context::Context() :
     eventHandler_(0)
 {
 #ifdef __ANDROID__
-    // Always reset the random seed on Android, as the Urho3D library might not be unloaded between runs
+    // Always reset the random seed on Android, as the miniclib library might not be unloaded between runs
     SetRandomSeed(1);
 #endif
 
@@ -182,7 +182,7 @@ void Context::RegisterAttribute(StringHash objectType, const AttributeInfo& attr
     // None or pointer types can not be supported
     if (attr.type_ == VAR_NONE || attr.type_ == VAR_VOIDPTR || attr.type_ == VAR_PTR)
     {
-        URHO3D_LOGWARNING("Attempt to register unsupported attribute type " + Variant::GetTypeName(attr.type_) + " to class " +
+        MINICLIB_LOGWARNING("Attempt to register unsupported attribute type " + Variant::GetTypeName(attr.type_) + " to class " +
             GetTypeName(objectType));
         return;
     }
@@ -227,10 +227,10 @@ bool Context::RequireSDL(unsigned int sdlFlags)
     // Need to call SDL_Init() at least once before SDL_InitSubsystem()
     if (sdlInitCounter == 0)
     {
-        URHO3D_LOGDEBUG("Initialising SDL");
+        MINICLIB_LOGDEBUG("Initialising SDL");
         if (SDL_Init(0) != 0)
         {
-            URHO3D_LOGERRORF("Failed to initialise SDL: %s", SDL_GetError());
+            MINICLIB_LOGERRORF("Failed to initialise SDL: %s", SDL_GetError());
             return false;
         }
     }
@@ -240,7 +240,7 @@ bool Context::RequireSDL(unsigned int sdlFlags)
     {
         if (SDL_InitSubSystem(remainingFlags) != 0)
         {
-            URHO3D_LOGERRORF("Failed to initialise SDL subsystem: %s", SDL_GetError());
+            MINICLIB_LOGERRORF("Failed to initialise SDL subsystem: %s", SDL_GetError());
             return false;
         }
     }
@@ -256,13 +256,13 @@ void Context::ReleaseSDL()
 
     if (sdlInitCounter == 0)
     {
-        URHO3D_LOGDEBUG("Quitting SDL");
+        MINICLIB_LOGDEBUG("Quitting SDL");
         SDL_QuitSubSystem(SDL_INIT_EVERYTHING);
         SDL_Quit();
     }
 
     if (sdlInitCounter < 0)
-        URHO3D_LOGERROR("Too many calls to Context::ReleaseSDL()!");
+        MINICLIB_LOGERROR("Too many calls to Context::ReleaseSDL()!");
 #endif
 }
 
@@ -271,7 +271,7 @@ void Context::CopyBaseAttributes(StringHash baseType, StringHash derivedType)
     // Prevent endless loop if mistakenly copying attributes from same class as derived
     if (baseType == derivedType)
     {
-        URHO3D_LOGWARNING("Attempt to copy base attributes to itself for class " + GetTypeName(baseType));
+        MINICLIB_LOGWARNING("Attempt to copy base attributes to itself for class " + GetTypeName(baseType));
         return;
     }
 
@@ -390,7 +390,7 @@ void Context::RemoveEventReceiver(Object* receiver, Object* sender, StringHash e
 
 void Context::BeginSendEvent(Object* sender, StringHash eventType)
 {
-#ifdef URHO3D_PROFILING
+#ifdef MINICLIB_PROFILING
     if (EventProfiler::IsActive())
     {
         EventProfiler* eventProfiler = GetSubsystem<EventProfiler>();
@@ -406,7 +406,7 @@ void Context::EndSendEvent()
 {
     eventSenders_.Pop();
 
-#ifdef URHO3D_PROFILING
+#ifdef MINICLIB_PROFILING
     if (EventProfiler::IsActive())
     {
         EventProfiler* eventProfiler = GetSubsystem<EventProfiler>();

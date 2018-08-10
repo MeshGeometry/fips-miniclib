@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@
 
 #include "../Math/Rect.h"
 
-namespace Urho3D
+namespace miniclib
 {
 
 /// Rectangular area allocator.
-class URHO3D_API AreaAllocator
+class MINICLIB_API AreaAllocator
 {
 public:
     /// Default construct with empty size.

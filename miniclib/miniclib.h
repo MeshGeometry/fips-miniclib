@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the Urho3D project.
+// Copyright (c) 2008-2017 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,55 +20,55 @@
 // THE SOFTWARE.
 //
 
-#ifndef URHO3D_API_H
-#define URHO3D_API_H
+#ifndef MINICLIB_API_H
+#define MINICLIB_API_H
 
 #pragma warning(disable: 4251)
 #pragma warning(disable: 4275)
 
-#define URHO3D_STATIC_DEFINE
-#define URHO3D_OPENGL
-/* #undef URHO3D_D3D11 */
-#define URHO3D_SSE
-/* #undef URHO3D_DATABASE_ODBC */
-/* #undef URHO3D_DATABASE_SQLITE */
-/* #undef URHO3D_LUAJIT */
-/* #undef URHO3D_TESTING */
+#define MINICLIB_STATIC_DEFINE
+#define MINICLIB_OPENGL
+/* #undef MINICLIB_D3D11 */
+#define MINICLIB_SSE
+/* #undef MINICLIB_DATABASE_ODBC */
+/* #undef MINICLIB_DATABASE_SQLITE */
+/* #undef MINICLIB_LUAJIT */
+/* #undef MINICLIB_TESTING */
 
-#ifdef URHO3D_STATIC_DEFINE
-#  define URHO3D_API
-#  define URHO3D_NO_EXPORT
+#ifdef MINICLIB_STATIC_DEFINE
+#  define MINICLIB_API
+#  define MINICLIB_NO_EXPORT
 #else
-#  ifndef URHO3D_API
+#  ifndef MINICLIB_API
 #    ifdef Urho3D_EXPORTS
         /* We are building this library */
-#      define URHO3D_API __declspec(dllexport)
+#      define MINICLIB_API __declspec(dllexport)
 #    else
         /* We are using this library */
-#      define URHO3D_API __declspec(dllimport)
+#      define MINICLIB_API __declspec(dllimport)
 #    endif
 #  endif
 
-#  ifndef URHO3D_NO_EXPORT
-#    define URHO3D_NO_EXPORT 
+#  ifndef MINICLIB_NO_EXPORT
+#    define MINICLIB_NO_EXPORT 
 #  endif
 #endif
 
-#ifndef URHO3D_DEPRECATED
-#  define URHO3D_DEPRECATED __declspec(deprecated)
+#ifndef MINICLIB_DEPRECATED
+#  define MINICLIB_DEPRECATED __declspec(deprecated)
 #endif
 
-#ifndef URHO3D_DEPRECATED_EXPORT
-#  define URHO3D_DEPRECATED_EXPORT URHO3D_API URHO3D_DEPRECATED
+#ifndef MINICLIB_DEPRECATED_EXPORT
+#  define MINICLIB_DEPRECATED_EXPORT MINICLIB_API MINICLIB_DEPRECATED
 #endif
 
-#ifndef URHO3D_DEPRECATED_NO_EXPORT
-#  define URHO3D_DEPRECATED_NO_EXPORT URHO3D_NO_EXPORT URHO3D_DEPRECATED
+#ifndef MINICLIB_DEPRECATED_NO_EXPORT
+#  define MINICLIB_DEPRECATED_NO_EXPORT MINICLIB_NO_EXPORT MINICLIB_DEPRECATED
 #endif
 
 #define DEFINE_NO_DEPRECATED 0
 #if DEFINE_NO_DEPRECATED
-# define URHO3D_NO_DEPRECATED
+# define MINICLIB_NO_DEPRECATED
 #endif
 
 #define NONSCRIPTABLE 

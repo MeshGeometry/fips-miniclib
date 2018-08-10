@@ -10,6 +10,11 @@ if ((FIPS_MACOS OR FIPS_WINDOWS OR FIPS_LINUX) AND NOT (FIPS_RASPBERRYPI OR FIPS
 
      fips_begin_lib(miniclib)
 
+     if (MSVC)
+        string(REPLACE "/WX" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+        string(REPLACE "/WX" "" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+    endif(MSVC)
+
 
     if (UNIX)
         find_package (Threads REQUIRED)

@@ -32,6 +32,8 @@ if ((FIPS_MACOS OR FIPS_WINDOWS OR FIPS_LINUX) AND NOT (FIPS_RASPBERRYPI OR FIPS
     include_directories("miniclib")
     fips_src(miniclib RECURSE)
 
+    fips_end_lib()
+
     #add_library(miniclib ${CORE_SRC})
 
     #source_group("Common" FILES ${CORE_SRC})
@@ -43,8 +45,8 @@ if ((FIPS_MACOS OR FIPS_WINDOWS OR FIPS_LINUX) AND NOT (FIPS_RASPBERRYPI OR FIPS
     if (UNIX)
         target_link_libraries (miniclib ${CMAKE_THREAD_LIBS_INIT})
     endif ()
-    
-     fips_end_lib()
+
+
 
 endif()
 

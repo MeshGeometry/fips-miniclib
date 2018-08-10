@@ -7,5 +7,5 @@ exports:
       - miniclib
 
     modules:
-      - miniclib
+      miniclib: .
 

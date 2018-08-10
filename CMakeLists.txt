@@ -10,10 +10,6 @@ if ((FIPS_MACOS OR FIPS_WINDOWS OR FIPS_LINUX) AND NOT (FIPS_RASPBERRYPI OR FIPS
 
      fips_begin_lib(miniclib)
 
-     if (MSVC)
-        string(REPLACE "/WX" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-        string(REPLACE "/WX" "" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
-    endif(MSVC)
 
 
     if (UNIX)
@@ -46,6 +42,14 @@ if ((FIPS_MACOS OR FIPS_WINDOWS OR FIPS_LINUX) AND NOT (FIPS_RASPBERRYPI OR FIPS
 
     add_definitions(-DMINI_URHO -DMINICLIB_LOGGING -DMINICLIB_IS_BUILDING)
     set_target_properties(miniclib PROPERTIES LINKER_LANGUAGE CXX)
+
+
+     if (MSVC)
+        string(REPLACE "/WX" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+        string(REPLACE "/WX" "" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+            target_link_libraries(miniclib winmm.lib)
+    endif(MSVC)
+
 
     if (UNIX)
         target_link_libraries (miniclib ${CMAKE_THREAD_LIBS_INIT})

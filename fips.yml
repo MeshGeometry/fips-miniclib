@@ -4,7 +4,7 @@
 ---
 exports:
     header-dirs: 
-      - miniclib
+      - .
 
     modules:
       miniclib: .

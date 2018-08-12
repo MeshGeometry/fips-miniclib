@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the miniclib project.
+// Copyright (c) 2008-2017 the Urho3D project. Copyright (c) 2018 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,19 +28,14 @@
 
 #define MINICLIB_STATIC_DEFINE
 #define MINICLIB_OPENGL
-/* #undef MINICLIB_D3D11 */
 #define MINICLIB_SSE
-/* #undef MINICLIB_DATABASE_ODBC */
-/* #undef MINICLIB_DATABASE_SQLITE */
-/* #undef MINICLIB_LUAJIT */
-/* #undef MINICLIB_TESTING */
 
 #ifdef MINICLIB_STATIC_DEFINE
 #  define MINICLIB_API
 #  define MINICLIB_NO_EXPORT
 #else
 #  ifndef MINICLIB_API
-#    ifdef Urho3D_EXPORTS
+#    ifdef miniclib_EXPORTS
         /* We are building this library */
 #      define MINICLIB_API __declspec(dllexport)
 #    else

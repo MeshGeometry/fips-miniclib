@@ -10,8 +10,6 @@ if ((FIPS_MACOS OR FIPS_WINDOWS OR FIPS_LINUX) AND NOT (FIPS_RASPBERRYPI OR FIPS
 
      fips_begin_lib(miniclib)
 
-
-
     if (UNIX)
         find_package (Threads REQUIRED)
     endif ()
@@ -30,24 +28,19 @@ if ((FIPS_MACOS OR FIPS_WINDOWS OR FIPS_LINUX) AND NOT (FIPS_RASPBERRYPI OR FIPS
         )
 
 
-    include_directories("miniclib")
-    fips_src(miniclib RECURSE)
+    include_directories(.)
+    fips_src(miniclib RECURSE GROUP)
 
     fips_end_lib()
 
-    #add_library(miniclib ${CORE_SRC})
-
-    #source_group("Common" FILES ${CORE_SRC})
-    #source_group("Dxf" FILES ${DXFIO_SRC})
-
-    add_definitions(-DMINI_URHO -DMINICLIB_LOGGING -DMINICLIB_IS_BUILDING)
+    add_definitions(-DMINI_URHO -DMINICLIB_LOGGING -DMINICLIB_THREADING -DMINICLIB_CXX11)
     set_target_properties(miniclib PROPERTIES LINKER_LANGUAGE CXX)
 
 
      if (MSVC)
         string(REPLACE "/WX" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
         string(REPLACE "/WX" "" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
-            target_link_libraries(miniclib winmm.lib)
+        target_link_libraries(miniclib winmm.lib)
     endif(MSVC)
 
 

@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2017 the miniclib project.
+// Copyright (c) 2008-2017 the Urho3D project. Copyright (c) 2018 the miniclib project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,14 +22,8 @@
 
 #pragma once
 
-#ifdef MINICLIB_IS_BUILDING
-#include "miniclib.h"
-#else
 #include <miniclib/miniclib.h>
-#endif
-#if MINICLIB_CXX11
 #include <initializer_list>
-#endif
 
 namespace miniclib
 {

@@ -130,6 +130,7 @@ private:
     bool quiet_;
 };
 
+
 #ifdef MINICLIB_LOGGING
 #define MINICLIB_LOGDEBUG(message) miniclib::Log::Write(miniclib::LOG_DEBUG, message)
 #define MINICLIB_LOGINFO(message) miniclib::Log::Write(miniclib::LOG_INFO, message)

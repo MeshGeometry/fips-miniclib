@@ -101,6 +101,18 @@ public:
     String GetUserDocumentsDir() const;
     /// Return the application preferences directory.
     String GetAppPreferencesDir(const String& org, const String& app) const;
+    /// Remove a directory, if recursive is set - remove contents first.
+    bool RemoveDir(const String& directoryIn, bool recursive = true);
+    /// Remove the contents of a directory.
+    bool RemoveDirContents(const String& directoryIn, bool recursive = true);
+    /// Check if directory is empty
+    bool DirEmpty(const String& directoryIn);
+    /// Copy a directory. directoryOut must not exist and is subsequently created with the contents of directoryIn
+    bool CopyDir(const String& directoryIn, const String& directoryOut);
+    /// Create subdirectories. New subdirectories will be made only in a subpath specified by `subdirectory`.
+    bool CreateDirs(const String& root, const String& subdirectory);
+    /// Create specified subdirectory and any parent directory if it does not exist.
+    bool CreateDirsRecursive(const String& directoryIn);
 
 private:
     /// Scan directory, called internally.

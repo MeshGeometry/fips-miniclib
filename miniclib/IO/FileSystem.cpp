@@ -973,6 +973,200 @@ void SplitPath(const String& fullPath, String& pathName, String& fileName, Strin
     }
 }
 
+bool FileSystem::RemoveDir(const String& directoryIn, bool recursive)
+{
+    String directory = AddTrailingSlash(directoryIn);
+
+    if (!DirExists(directory))
+        return false;
+
+    Vector<String> results;
+
+    // ensure empty if not recursive
+    if (!recursive)
+    {
+        ScanDir(results, directory, "*", SCAN_DIRS | SCAN_FILES | SCAN_HIDDEN, true );
+        while (results.Remove(".")) {}
+        while (results.Remove("..")) {}
+
+        if (results.Size())
+            return false;
+
+#ifdef WIN32
+        return RemoveDirectoryW(GetWideNativePath(directory).CString()) != 0;
+#else
+        return remove(GetNativePath(directory).CString()) == 0;
+#endif
+    }
+    else
+    {
+        //remove all contents
+        bool removeContentsSuc = RemoveDirContents(directoryIn, recursive);
+
+        //and the directory
+        return RemoveDir(directory, false) && removeContentsSuc;
+    }
+}
+
+bool FileSystem::RemoveDirContents(const String& directoryIn, bool recursive)
+{
+    String directory = AddTrailingSlash(directoryIn);
+
+    if (!DirExists(directory))
+        return false;
+
+    if (DirEmpty(directory))
+        return true;
+
+    // delete all files at this level
+    Vector<String> results;
+    bool fullSuccess = true;
+    ScanDir(results, directory, "*", SCAN_FILES | SCAN_HIDDEN | SCAN_DIRS, false);
+    for (unsigned i = 0; i < results.Size(); i++)
+    {
+        if (!Delete(directory + results[i]))
+            fullSuccess = false;
+    }
+
+
+    results.Clear();
+
+    if (recursive)
+    {
+        // recurse into subdirs
+        ScanDir(results, directory, "*", SCAN_DIRS, false);
+        for (unsigned i = 0; i < results.Size(); i++)
+        {
+            if (results[i] == "." || results[i] == "..")
+                continue;
+
+            if (!RemoveDirContents(directory + results[i], true))
+                fullSuccess = false;
+        }
+    }
+
+    if (!fullSuccess)
+        MINICLIB_LOGWARNING("Unable to fully remove contents of directory: " + directoryIn);
+
+    return fullSuccess;
+}
+    
+bool FileSystem::DirEmpty(const String& directoryIn)
+{
+    String directory = AddTrailingSlash(directoryIn);
+    
+    if (!DirExists(directory))
+        return false;
+    
+    
+    Vector<String> results;
+    ScanDir(results, directoryIn, "*", SCAN_FILES, true);
+    
+    return (results.Size() == 0);
+}
+
+bool FileSystem::CopyDir(const String& directoryIn, const String& directoryOut)
+{
+    if (FileExists(directoryOut) || DirExists(directoryOut))
+        return false;
+    
+    Vector<String> results;
+    ScanDir(results, directoryIn, "*", SCAN_FILES, true );
+    
+    for (unsigned i = 0; i < results.Size(); i++)
+    {
+        String srcFile = directoryIn + "/" + results[i];
+        String dstFile = directoryOut + "/" + results[i];
+        
+        String dstPath = GetPath(dstFile);
+        
+        if (!CreateDirsRecursive(dstPath))
+            return false;
+        
+        //LOGINFOF("SRC: %s DST: %s", srcFile.CString(), dstFile.CString());
+        if (!Copy(srcFile, dstFile))
+            return false;
+    }
+    
+    return true;
+}
+    
+bool FileSystem::CreateDirs(const String& root, const String& subdirectory)
+{
+    String folder = AddTrailingSlash(GetInternalPath(root));
+    String sub = GetInternalPath(subdirectory);
+    Vector<String> subs = sub.Split('/');
+    
+    for (unsigned i = 0; i < subs.Size(); i++)
+    {
+        folder += subs[i];
+        folder += "/";
+        
+        if (DirExists(folder))
+            continue;
+        
+        CreateDir(folder);
+        
+        if (!DirExists(folder))
+            return false;
+    }
+    
+    return true;
+    
+}
+
+bool FileSystem::CreateDirsRecursive(const String& directoryIn)
+{
+    String directory = AddTrailingSlash(GetInternalPath(directoryIn));
+    
+    if (DirExists(directory))
+        return true;
+    
+    if (FileExists(directory))
+        return false;
+    
+    String parentPath = directory;
+    
+    Vector<String> paths;
+    
+    paths.Push(directory);
+    
+    while (true)
+    {
+        parentPath = GetParentPath(parentPath);
+        
+        if (!parentPath.Length())
+            break;
+        
+        paths.Push(parentPath);
+    }
+    
+    if (!paths.Size())
+        return false;
+    
+    for (int i = (int) (paths.Size() - 1); i >= 0; i--)
+    {
+        const String& pathName = paths[i];
+        
+        if (FileExists(pathName))
+            return false;
+        
+        if (DirExists(pathName))
+            continue;
+        
+        if (!CreateDir(pathName))
+            return false;
+        
+        // double check
+        if (!DirExists(pathName))
+            return false;
+        
+    }
+    
+    return true;
+    
+}
+
 String GetPath(const String& fullPath)
 {
     String path, file, extension;
